@@ -1,0 +1,221 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to ABC Hospital</h1>
+    <nav>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+  <main>
+    <p>This is a static Hospital Management System for demo purposes.</p>
+  </main>
+</body>
+</html>
+
+<!-- register.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+  <h2>Register</h2>
+  <form>
+    <label>Name: <input type="text" required></label><br>
+    <label>Email: <input type="email" required></label><br>
+    <label>Password: <input type="password" required></label><br>
+    <label>Role:
+      <select>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+    </label><br>
+    <button type="submit" onclick="alert('Registered (static)')">Register</button>
+  </form>
+</body>
+</html>
+
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <form onsubmit="handleLogin(); return false;">
+    <label>Email: <input type="email" id="email"></label><br>
+    <label>Password: <input type="password" id="password"></label><br>
+    <button type="submit">Login</button>
+  </form>
+  <script>
+    function handleLogin() {
+      const email = document.getElementById("email").value;
+      if (email.includes("admin")) {
+        alert("Admin login");
+        window.location.href = "admin-dashboard.html";
+      } else {
+        alert("User login");
+        window.location.href = "user-dashboard.html";
+      }
+    }
+  </script>
+</body>
+</html>
+
+<!-- user-dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head><title>User Dashboard</title></head>
+<body>
+  <h2>User Dashboard</h2>
+  <ul>
+    <li><a href="user-appointment.html">Book Appointment</a></li>
+    <li><a href="user-message.html">Send Message</a></li>
+    <li><a href="#">View Appointments</a></li>
+    <li><a href="index.html">Logout</a></li>
+  </ul>
+</body>
+</html>
+
+<!-- user-appointment.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Book Appointment</title></head>
+<body>
+  <h2>Book Appointment</h2>
+  <form>
+    <label>Name: <input type="text"></label><br>
+    <label>Doctor: <input type="text"></label><br>
+    <label>Date: <input type="date"></label><br>
+    <label>Time: <input type="time"></label><br>
+    <button type="button" onclick="alert('Appointment Booked!')">Book</button>
+  </form>
+</body>
+</html>
+
+<!-- user-message.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Send Message</title></head>
+<body>
+  <h2>Send Message to Admin</h2>
+  <form>
+    <label>Subject: <input type="text"></label><br>
+    <label>Message:<br> <textarea rows="4" cols="30"></textarea></label><br>
+    <button type="button" onclick="alert('Message Sent!')">Send</button>
+  </form>
+</body>
+</html>
+
+<!-- admin-dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title></head>
+<body>
+  <h2>Admin Dashboard</h2>
+  <ul>
+    <li><a href="admin-view-appointments.html">View Appointments</a></li>
+    <li><a href="admin-doctors.html">Manage Doctors</a></li>
+    <li><a href="admin-messages.html">View Messages</a></li>
+    <li><a href="admin-add-admin.html">Add Admin</a></li>
+    <li><a href="index.html">Logout</a></li>
+  </ul>
+</body>
+</html>
+
+<!-- admin-view-appointments.html -->
+<!DOCTYPE html>
+<html>
+<head><title>View Appointments</title></head>
+<body>
+  <h2>All Appointments</h2>
+  <table border="1">
+    <tr><th>Name</th><th>Date</th><th>Time</th><th>Status</th></tr>
+    <tr>
+      <td>John</td>
+      <td>2025-05-01</td>
+      <td>10:00 AM</td>
+      <td>
+        <select>
+          <option>Pending</option>
+          <option>Accepted</option>
+          <option>Rejected</option>
+        </select>
+        <button onclick="alert('Status Updated')">Update</button>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<!-- admin-doctors.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Doctors</title></head>
+<body>
+  <h2>Doctors</h2>
+  <ul>
+    <li>Dr. Smith - Cardiologist</li>
+    <li>Dr. Jane - Neurologist</li>
+  </ul>
+  <h3>Add Doctor</h3>
+  <form>
+    <label>Name: <input type="text"></label><br>
+    <label>Specialty: <input type="text"></label><br>
+    <button type="button" onclick="alert('Doctor Added')">Add Doctor</button>
+  </form>
+</body>
+</html>
+
+<!-- admin-messages.html -->
+<!DOCTYPE html>
+<html>
+<head><title>User Messages</title></head>
+<body>
+  <h2>User Messages</h2>
+  <ul>
+    <li><strong>Subject:</strong> Appointment Help <br> <em>Message:</em> Please confirm my appointment.</li>
+  </ul>
+</body>
+</html>
+
+<!-- admin-add-admin.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Add Admin</title></head>
+<body>
+  <h2>Add New Admin</h2>
+  <form>
+    <label>Name: <input type="text"></label><br>
+    <label>Email: <input type="email"></label><br>
+    <label>Password: <input type="password"></label><br>
+    <button type="button" onclick="alert('Admin Added')">Add Admin</button>
+  </form>
+</body>
+</html>
+
+<!-- css/style.css -->
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+header, nav, main {
+  text-align: center;
+  margin-bottom: 20px;
+}
+a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: blue;
+}
